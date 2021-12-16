@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:lightning_vpn/server_list.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -44,8 +44,6 @@ class _HomePageState extends State<HomePage> {
             ),
           )
         ],
-        systemOverlayStyle:
-            const SystemUiOverlayStyle(statusBarColor: Colors.white),
         shadowColor: Colors.black12,
         backgroundColor: theme.scaffoldBackgroundColor,
         title: const Text(
@@ -67,14 +65,15 @@ class _HomePageState extends State<HomePage> {
             const InfoColumn("Remaining Time", "03:04:30", switchedColor: true),
             // const SizedBox(height: 32),
             ListTile(
-              tileColor: Colors.grey[200],
+              tileColor: Colors.blueGrey[50],
               leading: const Icon(Icons.language),
               trailing: const Icon(Icons.arrow_forward_ios_rounded),
               title: const Text("Fastest Server"),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5),
               ),
-              onTap: () {},
+              onTap: () => Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (_) => const ServerList())),
             ),
             // const SizedBox(height: 28),
             TextButton(
